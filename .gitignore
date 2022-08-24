@@ -67,3 +67,7 @@ bundle.*
 dev.sqlite3
 
 tags
+
+# Package-lock
+
+package-lock.json

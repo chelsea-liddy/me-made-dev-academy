@@ -1,10 +1,10 @@
 {
-  "name": "boilerplate-react-webpack",
-  "version": "0.2.3",
-  "description": "A webpack React starter",
-  "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
+  "name": "me-made",
+  "version": "0.1",
+  "description": "A personal project for Dev Academy Bootcamp",
+  "repository": "https://github.com/chelsea-liddy/me-made",
   "main": "server/index.js",
-  "author": "EDA",
+  "author": "EDA, Chelsea Liddy",
   "license": "ISC",
   "scripts": {
     "client": "webpack serve --config ./client/webpack.config.js --hot",
