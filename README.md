@@ -1,5 +1,9 @@
-# Boilerplate: React with Webpack
-This is a starter project that uses webpack to transpile and bundle ES6 React code. 
+# Me Made
+
+This is my personal project for Dev Academy Bootcamp August/September 2022.
+
+The repository was set up with a starter template that uses webpack to transpile and bundle ES6 React code.
+
 
 ## Setup
 

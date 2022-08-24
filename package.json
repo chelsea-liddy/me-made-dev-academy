@@ -1,6 +1,6 @@
 {
   "name": "me-made",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "A personal project for Dev Academy Bootcamp",
   "repository": "https://github.com/chelsea-liddy/me-made",
   "main": "server/index.js",
