@@ -4,6 +4,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Nav from './Nav'
 import Dashboard from './Dashboard'
+import Projects from './Projects'
 import Stash from './Stash'
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
         <Nav />
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/projects" />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" />
           <Route path="/stash" element={<Stash />} />
           <Route path="/stash/:id" />
