@@ -14,7 +14,12 @@ const App = () => {
         <Nav />
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/Stash" element={<Stash />} />
+          <Route path="/projects" />
+          <Route path="/projects/:id" />
+          <Route path="/stash" element={<Stash />} />
+          <Route path="/stash/:id" />
+          <Route path="/inspiration" />
+          <Route path="/inspiration/:id" />
         </Routes>
       </div>
 
