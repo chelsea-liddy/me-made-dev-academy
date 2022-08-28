@@ -2,7 +2,6 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
-import Nav from './Nav'
 import Dashboard from './Dashboard'
 import Projects from './Projects'
 import Stash from './Stash'
@@ -12,7 +11,6 @@ const App = () => {
     <>
       <Header />
       <div className="main">
-        <Nav />
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/projects" element={<Projects />} />
