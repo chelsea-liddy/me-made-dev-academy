@@ -1,4 +1,5 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 import Nav from './Nav'
@@ -9,10 +10,12 @@ const App = () => {
   return (
     <>
       <Header />
-      <Nav />
       <div className="main">
-        <Dashboard />
-        <Stash />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/Stash" element={<Stash />} />
+        </Routes>
       </div>
 
       <Footer />
