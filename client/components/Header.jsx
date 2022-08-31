@@ -1,11 +1,18 @@
 import React from 'react'
 import Nav from './Nav'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
     <div className="header">
       <Nav />
-      <h1 className="logo">Me Made</h1>
+      <Link to="/">
+        <img
+          className="logo"
+          src={'./images/memadelogo.JPG'}
+          alt="me made logo"
+        ></img>
+      </Link>
     </div>
   )
 }
