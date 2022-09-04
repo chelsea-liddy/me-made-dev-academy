@@ -1,17 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { getProjects } from '../apiClient'
 
 const Projects = () => {
+  const [projects, setProjects] = useState([])
+
+  useEffect(() => {
+    getProjects()
+      .then((projectList) => {
+        setProjects(projectList)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }, [])
+
   return (
     <div>
       <h1>Projects</h1>
       <div>
-        <h2>Axis Dress</h2>
-
-        <img
-          src="https://images.squarespace-cdn.com/content/v1/5e0d33d2f2e91c2313801a66/1600861098474-E2D2523OBFIA6BHFWXGE/349A40FD-60C6-44E0-8DA1-6198499DEF4B_1_201_a.jpeg?format=1000w"
-          alt="axis dress"
-        ></img>
-        <p>Category</p>
+        {projects.map((project) => {
+          return (
+            <div key={project.id}>
+              <h2>{project.name}</h2>
+              <img src={project.image} alt={project.name}></img>
+              <p>Category: {project.category}</p>
+              <p>Designer: {project.designer}</p>
+              <p>Description: {project.description}</p>
+              <p>Materials: {project.materials}</p>
+              <p>
+                <a href={project.link}>Link</a>
+              </p>
+            </div>
+          )
+        })}
       </div>
     </div>
   )
