@@ -1,23 +1,28 @@
-.header{
-  text-align: center;
-  display:flex;
-  width: 100%
+.header .header-wrapper{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap
 }
 
+.header-wrapper {
+  width: 960px;
+  max-width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+}
 .logo {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 150px;
-  margin: 20px;
+  max-width: 100%;
+  height: auto
 }
 
-.navbar{
- 
- 
- 
-}
+
+
+
 
 .navbar-item {
 list-style: none;
+
 }
 
 .main {
