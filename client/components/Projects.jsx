@@ -17,12 +17,18 @@ const Projects = () => {
   return (
     <div>
       <h1>Projects</h1>
-      <div>
+      <div className="flex-grid">
         {projects.map((project) => {
           return (
-            <div key={project.id}>
+            <div className="col" key={project.id}>
               <h2>{project.name}</h2>
-              <img src={project.image} alt={project.name}></img>
+              <div className="image-container">
+                <img
+                  className="project-image"
+                  src={project.image}
+                  alt={project.name}
+                ></img>
+              </div>
               <p>Category: {project.category}</p>
               <p>Designer: {project.designer}</p>
               <p>Description: {project.description}</p>

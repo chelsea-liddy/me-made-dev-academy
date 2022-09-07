@@ -12,7 +12,7 @@ exports.seed = (knex) => {
         {
           id: 1,
           image:
-            'https://images4-f.ravelrycache.com/uploads/trulymyrtle/664603751/georgie2_small2.jpg',
+            'https://images4-g.ravelrycache.com/uploads/trulymyrtle/664603751/georgie2_medium2.jpg',
           date_started: '12/01/2022',
           category: 'Knitting',
           name: 'Georgie Sweater',
