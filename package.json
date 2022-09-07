@@ -14,7 +14,7 @@
     "start": "node server",
     "build": "npm run webpack",
     "server": "node server",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "test:watch": "jest --watchAll",
     "webpack": "webpack --config ./client/webpack.config.js",
     "lint": "eslint --ext .js,.jsx .",
