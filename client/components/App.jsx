@@ -4,6 +4,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Dashboard from './Dashboard'
 import Projects from './Projects'
+import Project from './Project'
 import Stash from './Stash'
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" />
+          <Route path="/projects/:id" element={<Project />} />
           <Route path="/stash" element={<Stash />} />
           <Route path="/stash/:id" />
           <Route path="/inspiration" />

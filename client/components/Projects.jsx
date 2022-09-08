@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { getProjects } from '../apiClient'
 
 const Projects = () => {
@@ -21,7 +22,10 @@ const Projects = () => {
         {projects.map((project) => {
           return (
             <div className="col" key={project.id}>
-              <h2>{project.name}</h2>
+              <Link to={`/projects/${project.id}`}>
+                {' '}
+                <h2>{project.name}</h2>
+              </Link>
               <div className="image-container">
                 <img
                   className="project-image"
