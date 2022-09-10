@@ -22,3 +22,25 @@ describe('getProject', () => {
     })
   })
 })
+
+describe('addProject', () => {
+  it('adds a new project into databse', () => {
+    const project = {
+      name: 'test project',
+      image: 'https://image.com',
+      date_started: '12/4/2022',
+      category: 'Knitting',
+      designer: 'whoever',
+      description: 'blah blah',
+      materials: 'blah blah',
+      link: 'https://test.com',
+    }
+    return db.addProject(project, testDb).then(() => {
+      return testDb('projects')
+        .select()
+        .then((res) => {
+          expect(res).toHaveLength(3)
+        })
+    })
+  })
+})
