@@ -14,12 +14,12 @@ router.get('/', (req, res) => {
     })
 })
 
-//GET /v1/projects/
-router.get('/:projectId/updates', (req, res) => {
-  const projectId = req.params.projectId
-  db.getProjectUpdates(projectId)
-    .then((updates) => {
-      res.json(updates)
+//GET /v1/projects
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+  db.getProject(id)
+    .then((project) => {
+      res.json(project)
     })
     .catch((err) => {
       console.error(err.mesage)
@@ -28,11 +28,11 @@ router.get('/:projectId/updates', (req, res) => {
 })
 
 //GET /v1/projects
-router.get('/:id', (req, res) => {
-  const id = req.params.id
-  db.getProject(id)
-    .then((project) => {
-      res.json(project)
+router.get('/updates/:projectId', (req, res) => {
+  const projectId = req.params.projectId
+  db.getProjectUpdates(projectId)
+    .then((updates) => {
+      res.json(updates)
     })
     .catch((err) => {
       console.error(err.mesage)
