@@ -33,13 +33,6 @@ const Projects = () => {
                   alt={project.name}
                 ></img>
               </div>
-              <p>Category: {project.category}</p>
-              <p>Designer: {project.designer}</p>
-              <p>Description: {project.description}</p>
-              <p>Materials: {project.materials}</p>
-              <p>
-                <a href={project.link}>Link</a>
-              </p>
             </div>
           )
         })}

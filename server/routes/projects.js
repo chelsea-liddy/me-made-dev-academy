@@ -14,6 +14,19 @@ router.get('/', (req, res) => {
     })
 })
 
+//GET /v1/projects/
+router.get('/:projectId/updates', (req, res) => {
+  const projectId = req.params.projectId
+  db.getProjectUpdates(projectId)
+    .then((updates) => {
+      res.json(updates)
+    })
+    .catch((err) => {
+      console.error(err.mesage)
+      res.status(500).send("That's a server error!")
+    })
+})
+
 //GET /v1/projects
 router.get('/:id', (req, res) => {
   const id = req.params.id

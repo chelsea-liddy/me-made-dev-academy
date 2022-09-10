@@ -2,32 +2,33 @@ const config = require('./knexfile').development
 
 const connection = require('knex')(config)
 
-const projectsColumns = [
-  'id',
-  'image',
-  'date_started as dateStarted',
-  'category',
-  'name',
-  'designer',
-  'description',
-  'materials',
-  'link',
-]
-
-const projectUpdatesColumns = [
-  'id',
-  'project_id as projectId',
-  'date_updated as dateUpdated',
-  'update',
-]
-
 function getProjects(db = connection) {
-  return db('projects').select(...projectsColumns)
+  return db('projects').select(
+    'id',
+    'image',
+    'date_started as dateStarted',
+    'category',
+    'name',
+    'designer',
+    'description',
+    'materials',
+    'link'
+  )
 }
 
 function getProject(id, db = connection) {
   return db('projects')
-    .select(...projectsColumns)
+    .select(
+      'id',
+      'image',
+      'date_started as dateStarted',
+      'category',
+      'name',
+      'designer',
+      'description',
+      'materials',
+      'link'
+    )
     .where('id', id)
     .first()
 }
@@ -57,13 +58,23 @@ function deleteProject(id, db = connection) {
 
 function getProjectUpdates(projectId, db = connection) {
   return db('project_updates')
-    .select(...projectUpdatesColumns)
+    .select(
+      'id',
+      'project_id as projectId',
+      'date_updated as dateUpdated',
+      'update'
+    )
     .where('project_id', projectId)
 }
 
 function getProjectUpdate(id, db = connection) {
   return db('project_updates')
-    .select(...projectUpdatesColumns)
+    .select(
+      'id',
+      'project_id as projectId',
+      'date_updated as dateUpdated',
+      'update'
+    )
     .where('id', id)
 }
 

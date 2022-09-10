@@ -15,6 +15,18 @@ exports.seed = (knex) => {
           date_updated: new Date(Date.now()),
           update: 'Ready for blocking',
         },
+        {
+          id: 2,
+          project_id: 1,
+          date_updated: new Date(Date.now()),
+          update: 'Finished',
+        },
+        {
+          id: 3,
+          project_id: 2,
+          date_updated: new Date(Date.now()),
+          update: 'Row 62',
+        },
       ])
     })
 }
