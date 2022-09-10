@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProject } from '../apiClient'
+import ProjectUpdates from './ProjectUpdates'
 
 const Project = () => {
   const id = useParams().id
@@ -32,6 +33,7 @@ const Project = () => {
       <p>
         <a href={project.link}>Link</a>
       </p>
+      <ProjectUpdates />
     </div>
   )
 }
