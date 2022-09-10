@@ -8,6 +8,8 @@ export function getProject(id) {
   return request.get(`/v1/projects/${id}`).then((res) => res.body)
 }
 
-export function getProjectUpdates(projectId) {
-  return request.get(`v1/projects/${projectId}/updates`).then((res) => res.body)
+export function getUpdatesByProjectId(projectId) {
+  return request
+    .get(`/v1/projects/updates/${projectId}`)
+    .then((res) => res.body)
 }
