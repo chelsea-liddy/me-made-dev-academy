@@ -1,30 +1,68 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 50px
+  margin: 20px
 }
 
-.header .header-wrapper{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap
+.main {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+.header {
+ margin-left: 40px;
+ border-bottom: solid black 1px;
 }
 
-.header-wrapper {
-  width: 960px;
-  max-width: 100%;
-  padding: 20px;
-  margin: 0 auto;
+.navbar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+  border-right: solid black 1px
+ 
+}
+.navbar-item {
+display: block;
+list-style: none;
+font-family: 'Shadows Into Light Two', cursive;
+font-size: 30px;
+padding: 16px;
 }
 
 .logo {
-  max-width: 100%;
+  width: 400px;
   height: auto
 }
 
-.navbar-item {
-list-style: none;
+h1, h2, h3 {
+  font-family: 'Shadows Into Light Two', cursive;
 }
+
+h2 {
+  font-size: 30px
+}
+
+.page-header {
+  font-size: 60px;
+  text-align: center;
+  margin: 20px
+}
+
+a:link {
+  color: black;
+  text-decoration: none
+}
+
+a:visited {
+ color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 
 .dashboard {
   display: flex;
@@ -36,7 +74,7 @@ list-style: none;
 .flex-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  
 }
 
 .col {
@@ -53,12 +91,5 @@ list-style: none;
   vertical-align: middle
 }
 
-.footer {
-  text-align: center;
-}
 
-.author {
-  font-size: 20px;
-  margin: 20px;
-}
 

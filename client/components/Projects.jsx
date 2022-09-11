@@ -17,7 +17,7 @@ const Projects = () => {
 
   return (
     <div>
-      <h1>Projects</h1>
+      <h1 className="page-header">Projects</h1>
       <div className="flex-grid">
         {projects.map((project) => {
           return (
@@ -26,12 +26,8 @@ const Projects = () => {
                 {' '}
                 <h2>{project.name}</h2>
               </Link>
-              <div className="image-container">
-                <img
-                  className="project-image"
-                  src={project.image}
-                  alt={project.name}
-                ></img>
+              <div>
+                <img src={project.image} alt={project.name}></img>
               </div>
             </div>
           )

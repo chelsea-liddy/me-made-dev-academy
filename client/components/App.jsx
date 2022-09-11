@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './Header'
-import Footer from './Footer'
+import Nav from './Nav'
 import Dashboard from './Dashboard'
 import Projects from './Projects'
 import Project from './Project'
@@ -12,6 +12,7 @@ const App = () => {
   return (
     <>
       <Header />
+      <Nav />
       <div className="main">
         <Routes>
           <Route path="/" element={<Dashboard />} />
@@ -24,8 +25,6 @@ const App = () => {
           <Route path="/inspiration/:id" />
         </Routes>
       </div>
-
-      <Footer />
     </>
   )
 }

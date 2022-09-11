@@ -23,8 +23,7 @@ exports.seed = (knex) => {
         },
         {
           id: 2,
-          image:
-            'https://images4-f.ravelrycache.com/uploads/Knitatude87/668055722/3D086FD8-ECFE-4540-A96C-E396DAB59508_medium2.JPG',
+          image: '/images/3D086FD8-ECFE-4540-A96C-E396DAB59508 (1).jpg',
           date_started: '02/09/2022',
           category: 'Sewing',
           name: 'Duality Scarf',
