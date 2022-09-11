@@ -4,7 +4,16 @@ import { addProject } from '../apiClient'
 
 const AddProject = () => {
   const navigate = useNavigate()
-  const [formData, setFormData] = useState({ name: '' })
+  const [formData, setFormData] = useState({
+    name: '',
+    category: '',
+    date_started: '',
+    designer: '',
+    description: '',
+    materials: '',
+    link: '',
+    image: '',
+  })
 
   function changeHandler(event) {
     const { name, value } = event.target
@@ -17,7 +26,7 @@ const AddProject = () => {
     setFormData({
       name: '',
       category: '',
-      dateStarted: '',
+      date_started: '',
       designer: '',
       description: '',
       materials: '',
@@ -47,11 +56,11 @@ const AddProject = () => {
         ></input>
       </p>
       <p>
-        <label htmlFor="dateStarted">Date project started: </label>
+        <label htmlFor="date_started">Date project started: </label>
         <input
-          name="dateStarted"
+          name="date_started"
           onChange={changeHandler}
-          value={formData.dateStarted}
+          value={formData.date_started}
         ></input>
       </p>
       <p>
@@ -63,7 +72,7 @@ const AddProject = () => {
         ></input>
       </p>
       <p>
-        <label htmlFor="description">Descripton: </label>
+        <label htmlFor="description">Description: </label>
         <input
           name="description"
           onChange={changeHandler}
