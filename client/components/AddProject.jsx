@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { addProject } from '../apiClient'
 
 const AddProject = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({ name: '' })
 
   function changeHandler(event) {
@@ -12,7 +14,17 @@ const AddProject = () => {
   function submitHandler(event) {
     event.preventDefault()
     addProject(formData)
-    setFormData({ name: '' })
+    setFormData({
+      name: '',
+      category: '',
+      dateStarted: '',
+      designer: '',
+      description: '',
+      materials: '',
+      link: '',
+      image: '',
+    })
+    navigate('/projects')
   }
 
   return (
@@ -26,8 +38,65 @@ const AddProject = () => {
           value={formData.name}
         ></input>
       </p>
-
-      <button onClick={submitHandler}>Save new project</button>
+      <p>
+        <label htmlFor="category">Category: </label>
+        <input
+          name="category"
+          onChange={changeHandler}
+          value={formData.category}
+        ></input>
+      </p>
+      <p>
+        <label htmlFor="dateStarted">Date project started: </label>
+        <input
+          name="dateStarted"
+          onChange={changeHandler}
+          value={formData.dateStarted}
+        ></input>
+      </p>
+      <p>
+        <label htmlFor="designer">Designer: </label>
+        <input
+          name="designer"
+          onChange={changeHandler}
+          value={formData.designer}
+        ></input>
+      </p>
+      <p>
+        <label htmlFor="description">Descripton: </label>
+        <input
+          name="description"
+          onChange={changeHandler}
+          value={formData.description}
+        ></input>
+      </p>
+      <p>
+        <label htmlFor="materials">Materials: </label>
+        <input
+          name="materials"
+          onChange={changeHandler}
+          value={formData.materials}
+        ></input>
+      </p>
+      <p>
+        <label htmlFor="link">Link: </label>
+        <input
+          name="link"
+          onChange={changeHandler}
+          value={formData.link}
+        ></input>
+      </p>
+      <p>
+        <label htmlFor="image">Image link: </label>
+        <input
+          name="image"
+          onChange={changeHandler}
+          value={formData.image}
+        ></input>
+      </p>
+      <p>
+        <button onClick={submitHandler}>Save new project</button>
+      </p>
     </form>
   )
 }
