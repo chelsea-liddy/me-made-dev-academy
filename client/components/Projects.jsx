@@ -17,7 +17,11 @@ const Projects = () => {
 
   return (
     <div>
+      <Link to={'/projects/add'}>
+        <button className="add-button">Add a new project</button>
+      </Link>
       <h1 className="page-header">Projects</h1>
+
       <div className="flex-grid">
         {projects.map((project) => {
           return (
@@ -33,9 +37,7 @@ const Projects = () => {
           )
         })}
       </div>
-      <div>
-        <Link to={'/projects/add'}>Add a new project</Link>
-      </div>
+      <div></div>
     </div>
   )
 }
