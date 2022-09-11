@@ -19,7 +19,6 @@ export function addProject(project) {
     .post('/v1/projects')
     .send(project)
     .then((res) => {
-      console.log(res.text)
       return res.body
     })
 }

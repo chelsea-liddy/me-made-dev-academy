@@ -33,8 +33,10 @@ router.post('/', (req, res) => {
   const project = req.body
   db.addProject(project)
     .then((ids) => {
-      const id = ids[0]
-      const newProject = { id, ...project }
+      const newProjectId = ids[0]
+      return db.getProject(newProjectId)
+    })
+    .then((newProject) => {
       res.json(newProject)
     })
     .catch((err) => {

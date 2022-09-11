@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getProjects } from '../apiClient'
-import AddProject from './AddProject'
 
 const Projects = () => {
   const [projects, setProjects] = useState([])
@@ -38,7 +37,9 @@ const Projects = () => {
           )
         })}
       </div>
-      <AddProject />
+      <div>
+        <Link to={'/projects/add'}>Add a new project</Link>
+      </div>
     </div>
   )
 }
