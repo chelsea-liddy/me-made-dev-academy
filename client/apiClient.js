@@ -13,3 +13,13 @@ export function getUpdatesByProjectId(projectId) {
     .get(`/v1/projects/updates/${projectId}`)
     .then((res) => res.body)
 }
+
+export function addProject(project) {
+  return request
+    .post('/v1/projects')
+    .send(project)
+    .then((res) => {
+      console.log(res.text)
+      return res.body
+    })
+}
