@@ -18,8 +18,17 @@ const Project = () => {
   }, [])
 
   return (
-    <div>
-      <h1>{project.name}</h1>
+    <div className="project-container">
+      <div className="project-details">
+        <h1>{project.name}</h1>
+        <h3>Designer:</h3> {project.designer}
+        <h3>Description:</h3> {project.description}
+        <h3>Materials:</h3> {project.materials}
+        <h3>
+          <a href={project.link}>Link</a>
+        </h3>
+        <ProjectUpdates />
+      </div>
       <div className="image-container">
         <img
           className="project-image"
@@ -27,13 +36,6 @@ const Project = () => {
           alt={project.name}
         ></img>
       </div>
-      <p>Designer: {project.designer}</p>
-      <p>Description: {project.description}</p>
-      <p>Materials: {project.materials}</p>
-      <p>
-        <a href={project.link}>Link</a>
-      </p>
-      <ProjectUpdates />
     </div>
   )
 }

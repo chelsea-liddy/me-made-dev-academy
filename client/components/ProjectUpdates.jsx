@@ -18,8 +18,13 @@ const ProjectUpdates = () => {
 
   return (
     <div>
+      <h3>Updates:</h3>
       {projectUpdates.map((projectUpdate) => {
-        return <p key={projectUpdate.id}>Update: {projectUpdate.update} </p>
+        return (
+          <p key={projectUpdate.id}>
+            {projectUpdate.dateUpdated}: {projectUpdate.update}
+          </p>
+        )
       })}
     </div>
   )
