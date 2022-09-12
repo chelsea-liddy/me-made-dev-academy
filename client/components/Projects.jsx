@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { fetchProjects, setProjectsSuccess } from '../actions'
-import { getProjects } from '../apiClient'
+import { fetchProjects } from '../actions'
 
 const Projects = () => {
   const projects = useSelector((state) => state.projects)
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(fetchProjects())
   }, [])
