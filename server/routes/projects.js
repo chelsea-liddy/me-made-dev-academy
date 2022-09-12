@@ -32,12 +32,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const project = req.body
   db.addProject(project)
-    .then((ids) => {
-      const newProjectId = ids[0]
-      return db.getProject(newProjectId)
-    })
-    .then((newProject) => {
-      res.json(newProject)
+    .then((project) => {
+      res.json(project)
     })
     .catch((err) => {
       console.error(err.mesage)

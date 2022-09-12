@@ -1,4 +1,4 @@
-import { getProjects } from '../apiClient'
+import { getProjects, addProject } from '../apiClient'
 
 export const SET_PROJECTS_SUCCESS = 'SET_PROJECTS_SUCCESS'
 export const SET_PROJECTS_PENDING = 'SET_PROJECTS_PENDING'
@@ -8,6 +8,19 @@ export function fetchProjects() {
   return (dispatch) => {
     dispatch(setProjectsPending())
     return getProjects()
+      .then((projects) => {
+        dispatch(setProjectsSuccess(projects))
+        return null
+      })
+      .catch((err) => {
+        dispatch(setError(err.message))
+      })
+  }
+}
+
+export function addNewProject(newProject) {
+  return (dispatch) => {
+    return addProject(newProject)
       .then((projects) => {
         dispatch(setProjectsSuccess(projects))
         return null

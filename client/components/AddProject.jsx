@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { addProject } from '../apiClient'
+import { useDispatch } from 'react-redux'
+import { addNewProject } from '../actions'
 
 const AddProject = () => {
   const initialState = {
@@ -14,6 +15,7 @@ const AddProject = () => {
     image: '',
   }
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [formData, setFormData] = useState(initialState)
 
   function changeHandler(event) {
@@ -23,7 +25,7 @@ const AddProject = () => {
 
   function submitHandler(event) {
     event.preventDefault()
-    addProject(formData)
+    dispatch(addNewProject(formData))
     setFormData(initialState)
     navigate('/projects')
   }
