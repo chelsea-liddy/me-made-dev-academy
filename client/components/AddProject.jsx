@@ -49,15 +49,21 @@ const AddProject = () => {
       </p>
       <p>
         <label htmlFor="category">Category: </label>
-        <input
+        <select
           name="category"
           onChange={changeHandler}
           value={formData.category}
-        ></input>
+        >
+          <option value=""></option>
+          <option value="Knitting">Knitting</option>
+          <option value="Sewing">Sewing</option>
+          <option value="Other">Other</option>
+        </select>
       </p>
       <p>
         <label htmlFor="date_started">Date project started: </label>
         <input
+          type="date"
           name="date_started"
           onChange={changeHandler}
           value={formData.date_started}
