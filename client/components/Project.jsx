@@ -9,8 +9,8 @@ const Project = () => {
 
   useEffect(() => {
     getProject(id)
-      .then((newProject) => {
-        setProject(newProject)
+      .then((project) => {
+        setProject(project)
       })
       .catch((err) => {
         console.error(err)
@@ -24,9 +24,8 @@ const Project = () => {
         <h3>Designer:</h3> {project.designer}
         <h3>Description:</h3> {project.description}
         <h3>Materials:</h3> {project.materials}
-        <h3>
-          <a href={project.link}>Link</a>
-        </h3>
+        <h3>Instructions: </h3> <a href={project.link}>{project.link}</a>
+        <h3>Date started: </h3> {project.dateStarted}
         <ProjectUpdates />
       </div>
       <div className="image-container">
