@@ -34,7 +34,9 @@ function getProject(id, db = connection) {
 }
 
 function addProject(project, db = connection) {
-  return db('projects').insert(project)
+  return db('projects')
+    .insert(project)
+    .then(() => getProjects(db))
 }
 
 function editProject(project, id, db = connection) {
