@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { addProject } from '../apiClient'
 
 const AddProject = () => {
-  const navigate = useNavigate()
-  const [formData, setFormData] = useState({
+  const initialState = {
     name: '',
     category: '',
     date_started: '',
@@ -13,7 +12,9 @@ const AddProject = () => {
     materials: '',
     link: '',
     image: '',
-  })
+  }
+  const navigate = useNavigate()
+  const [formData, setFormData] = useState(initialState)
 
   function changeHandler(event) {
     const { name, value } = event.target
@@ -23,16 +24,7 @@ const AddProject = () => {
   function submitHandler(event) {
     event.preventDefault()
     addProject(formData)
-    setFormData({
-      name: '',
-      category: '',
-      date_started: '',
-      designer: '',
-      description: '',
-      materials: '',
-      link: '',
-      image: '',
-    })
+    setFormData(initialState)
     navigate('/projects')
   }
 
@@ -49,15 +41,21 @@ const AddProject = () => {
       </p>
       <p>
         <label htmlFor="category">Category: </label>
-        <input
+        <select
           name="category"
           onChange={changeHandler}
           value={formData.category}
-        ></input>
+        >
+          <option value=""></option>
+          <option value="Knitting">Knitting</option>
+          <option value="Sewing">Sewing</option>
+          <option value="Other">Other</option>
+        </select>
       </p>
       <p>
         <label htmlFor="date_started">Date project started: </label>
         <input
+          type="date"
           name="date_started"
           onChange={changeHandler}
           value={formData.date_started}
