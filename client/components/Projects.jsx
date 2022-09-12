@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { fetchProjects } from '../actions'
+import ProjectSummary from './ProjectSummary'
 
 const Projects = () => {
   const projects = useSelector((state) => state.projects)
@@ -22,13 +23,11 @@ const Projects = () => {
         {projects.map((project) => {
           return (
             <div className="col" key={project.id}>
-              <Link to={`/projects/${project.id}`}>
-                {' '}
-                <h2>{project.name}</h2>
-              </Link>
-              <div>
-                <img src={project.image} alt={project.name}></img>
-              </div>
+              <ProjectSummary
+                name={project.name}
+                id={project.id}
+                image={project.image}
+              />
             </div>
           )
         })}
