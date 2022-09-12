@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { addProject } from '../apiClient'
 
 const AddProject = () => {
-  const navigate = useNavigate()
-  const [formData, setFormData] = useState({
+  const initialState = {
     name: '',
     category: '',
     date_started: '',
@@ -13,7 +12,9 @@ const AddProject = () => {
     materials: '',
     link: '',
     image: '',
-  })
+  }
+  const navigate = useNavigate()
+  const [formData, setFormData] = useState(initialState)
 
   function changeHandler(event) {
     const { name, value } = event.target
@@ -23,16 +24,7 @@ const AddProject = () => {
   function submitHandler(event) {
     event.preventDefault()
     addProject(formData)
-    setFormData({
-      name: '',
-      category: '',
-      date_started: '',
-      designer: '',
-      description: '',
-      materials: '',
-      link: '',
-      image: '',
-    })
+    setFormData(initialState)
     navigate('/projects')
   }
 
