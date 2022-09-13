@@ -6,8 +6,7 @@ const ProjectSummary = (props) => {
 
   return (
     <>
-      <Link to={`/projects/${project.id}`}>
-        {' '}
+      <Link to={`/project/${project.id}`}>
         <h2>{project.name}</h2>
       </Link>
       <div>

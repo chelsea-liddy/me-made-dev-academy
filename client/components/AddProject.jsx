@@ -27,7 +27,7 @@ const AddProject = () => {
     event.preventDefault()
     dispatch(addNewProject(formData))
     setFormData(initialState)
-    navigate('/projects')
+    navigate('/')
   }
 
   return (

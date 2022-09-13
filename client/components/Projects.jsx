@@ -1,22 +1,28 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { fetchProjects } from '../actions'
 import ProjectSummary from './ProjectSummary'
 
 const Projects = () => {
   const projects = useSelector((state) => state.projects)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(fetchProjects())
   }, [])
 
+  const handleClick = () => {
+    navigate('/project/add')
+  }
+
   return (
     <div>
-      <Link to={'/projects/add'}>
-        <button className="add-button">Add a new project</button>
-      </Link>
+      <button onClick={handleClick} className="add-button">
+        Add a new project
+      </button>
+
       <h1 className="page-header">Projects</h1>
 
       <div className="flex-grid">
@@ -32,7 +38,6 @@ const Projects = () => {
           )
         })}
       </div>
-      <div></div>
     </div>
   )
 }
