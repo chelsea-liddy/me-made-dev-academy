@@ -55,7 +55,10 @@ function editProject(project, id, db = connection) {
 }
 
 function deleteProject(id, db = connection) {
-  return db('projects').delete().where('id', id)
+  return db('projects')
+    .delete()
+    .where('id', id)
+    .then(() => getProjects(db))
 }
 
 function getProjectUpdates(projectId, db = connection) {

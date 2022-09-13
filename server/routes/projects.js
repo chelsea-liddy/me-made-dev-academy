@@ -56,6 +56,17 @@ router.get('/updates/:projectId', (req, res) => {
 
 //PATCH /v1/projects
 
-//DELETE /v1/projects
+//DELETE /v1/projects (delete projects by id)
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  db.deleteProject(id)
+    .then((projects) => {
+      res.json(projects)
+    })
+    .catch((err) => {
+      console.error(err.mesage)
+      res.status(500).send("That's a server error!")
+    })
+})
 
 module.exports = router

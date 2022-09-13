@@ -22,3 +22,7 @@ export function addProject(project) {
       return res.body
     })
 }
+
+export function deleteProject(id) {
+  return request.del(`/v1/projects/${id}`).then((res) => res.body)
+}
