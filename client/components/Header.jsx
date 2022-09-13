@@ -4,15 +4,23 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   return (
     <div className="header">
-      <div className="header-wrapper">
-        <Link to="/">
-          <img
-            className="logo"
-            src={'./images/memadelogo.JPG'}
-            alt="me made"
-          ></img>
-        </Link>
-      </div>
+      <Link to="/">
+        <img
+          className="logo"
+          src={'./images/memadelogo.JPG'}
+          alt="me made"
+        ></img>
+      </Link>
+      <img
+        className="icon"
+        src={'./images/knitting.png'}
+        alt="yarn ball and needles"
+      ></img>
+      <img
+        className="icon"
+        src={'./images/thread.png'}
+        alt="thread spool"
+      ></img>
     </div>
   )
 }

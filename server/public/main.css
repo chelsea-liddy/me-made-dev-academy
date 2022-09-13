@@ -7,12 +7,27 @@ body {
   margin-left: 200px;
   margin-right: 30px;
   padding: 1px 16px;
-  
 }
+
 .header {
  margin-left: 40px;
  border-bottom: solid black 1px;
 }
+
+.logo {
+  width: 400px;
+  height: auto;
+  
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  float: right;
+ 
+}
+
+
 
 .navbar {
   margin: 0;
@@ -32,10 +47,7 @@ font-size: 30px;
 padding: 16px;
 }
 
-.logo {
-  width: 400px;
-  height: auto
-}
+
 
 h1, h2, h3 {
   font-family: 'Shadows Into Light Two', cursive;
@@ -146,3 +158,6 @@ input, textarea, select {
   
 }
 
+.footer {
+  text-align: center;
+}

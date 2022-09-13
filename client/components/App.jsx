@@ -1,6 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './Header'
+import Footer from './Footer'
 import Nav from './Nav'
 import Projects from './Projects'
 import Project from './Project'
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/stash" element={<Stash />} />
         </Routes>
       </div>
+      <Footer />
     </>
   )
 }
