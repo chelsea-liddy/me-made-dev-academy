@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { fetchProjects } from '../actions'
 import ProjectSummary from './ProjectSummary'
+import Loading from './Loading'
 
 const Projects = () => {
   const projects = useSelector((state) => state.projects)
@@ -24,7 +25,7 @@ const Projects = () => {
       </button>
 
       <h1 className="page-header">Projects</h1>
-
+      <Loading />
       <div className="flex-grid">
         {projects.map((project) => {
           return (
