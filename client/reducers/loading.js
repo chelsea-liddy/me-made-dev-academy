@@ -4,9 +4,7 @@ import {
   SET_ERROR,
 } from '../actions'
 
-const initialState = false
-
-const reducer = (state = initialState, action) => {
+const loading = (state = false, action) => {
   switch (action.type) {
     case SET_PROJECTS_PENDING:
       return true
@@ -20,4 +18,4 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export default reducer
+export default loading

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
 import projects from './projects'
-import errMessage from './errMessage'
+import errorMessage from './errorMessage'
 import loading from './loading'
 
 export default combineReducers({
   projects,
-  errMessage,
+  errorMessage,
   loading,
 })

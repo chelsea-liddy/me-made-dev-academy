@@ -57,9 +57,9 @@ export function setProjectsPending() {
   }
 }
 
-export function setError(errMessage) {
+export function setError(errorMessage) {
   return {
     type: SET_ERROR,
-    payload: errMessage,
+    payload: errorMessage,
   }
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { fetchProjects } from '../actions'
+import ErrorMessage from './ErrorMessage'
 import ProjectSummary from './ProjectSummary'
 import Loading from './Loading'
 
@@ -20,12 +21,14 @@ const Projects = () => {
 
   return (
     <div>
+      <ErrorMessage />
+      <Loading />
       <button onClick={handleClick} className="add-button">
         Add a new project
       </button>
 
       <h1 className="page-header">Projects</h1>
-      <Loading />
+
       <div className="flex-grid">
         {projects.map((project) => {
           return (

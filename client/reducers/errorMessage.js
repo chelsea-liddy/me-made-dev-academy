@@ -1,8 +1,6 @@
 import { SET_ERROR } from '../actions'
 
-const initialState = null
-
-const reducer = (state = initialState, action) => {
+const errorMessage = (state = null, action) => {
   switch (action.type) {
     case SET_ERROR:
       return action.payload
@@ -11,4 +9,4 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export default reducer
+export default errorMessage
