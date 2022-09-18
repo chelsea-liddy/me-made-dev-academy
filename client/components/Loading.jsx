@@ -1,20 +1,18 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-const Loading = (props) => {
-  return props.loading ? (
-    <img
-      style={{ width: '30px', height: '30px' }}
-      src="/images/loading.gif"
-      alt="thread in alternating colours"
-    />
+const Loading = () => {
+  const loading = useSelector((state) => state.loading)
+
+  return loading ? (
+    <div className="loading">
+      <img
+        className="loading-icon"
+        src="/images/loading.gif"
+        alt="thread in alternating colours"
+      />
+    </div>
   ) : null
 }
 
-function mapStateToProps(state) {
-  return {
-    loading: state.loading,
-  }
-}
-
-export default connect(mapStateToProps)(Loading)
+export default Loading

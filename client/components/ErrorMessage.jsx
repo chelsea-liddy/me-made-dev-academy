@@ -3,10 +3,18 @@ import { useSelector } from 'react-redux'
 
 const ErrorMessage = () => {
   const errorMessage = useSelector((state) => state.errorMessage)
+
   return (
-    <>
-      <p style={{ color: 'red', backgroundColor: 'pink' }}>{errorMessage}</p>
-    </>
+    <div className="error">
+      {errorMessage}
+      <br />
+      <br />
+      <img
+        className="icon"
+        alt="thread and scissors"
+        src="/images/thread-cut.png"
+      />
+    </div>
   )
 }
 

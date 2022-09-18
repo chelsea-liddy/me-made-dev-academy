@@ -13,7 +13,8 @@ export function fetchProjects() {
         return null
       })
       .catch((err) => {
-        dispatch(setError(err.message))
+        console.log(err.response.text)
+        dispatch(setError(err.response.text))
       })
   }
 }

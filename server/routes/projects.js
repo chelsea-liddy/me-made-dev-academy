@@ -2,6 +2,8 @@ const express = require('express')
 const db = require('../db/db')
 const router = express.Router()
 
+const errorMessage = 'Whoops! Something unravelled. Please try again'
+
 //GET /v1/projects (all projects)
 router.get('/', (req, res) => {
   db.getProjects()
@@ -10,7 +12,7 @@ router.get('/', (req, res) => {
     })
     .catch((err) => {
       console.error(err.mesage)
-      res.status(500).send("That's a server error!")
+      res.status(500).send(errorMessage)
     })
 })
 
@@ -23,7 +25,7 @@ router.get('/:id', (req, res) => {
     })
     .catch((err) => {
       console.error(err.mesage)
-      res.status(500).send("That's a server error!")
+      res.status(500).send(errorMessage)
     })
 })
 
@@ -37,7 +39,7 @@ router.post('/', (req, res) => {
     })
     .catch((err) => {
       console.error(err.mesage)
-      res.status(500).send("That's a server error!")
+      res.status(500).send(errorMessage)
     })
 })
 
@@ -50,7 +52,7 @@ router.get('/updates/:projectId', (req, res) => {
     })
     .catch((err) => {
       console.error(err.mesage)
-      res.status(500).send("That's a server error!")
+      res.status(500).send(errorMessage)
     })
 })
 
@@ -65,7 +67,7 @@ router.delete('/:id', (req, res) => {
     })
     .catch((err) => {
       console.error(err.mesage)
-      res.status(500).send("That's a server error!")
+      res.status(500).send(errorMessage)
     })
 })
 

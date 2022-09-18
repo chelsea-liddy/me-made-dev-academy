@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { fetchProjects } from '../actions'
 import ErrorMessage from './ErrorMessage'
-import ProjectSummary from './ProjectSummary'
+import { isError } from '../utils'
 import Loading from './Loading'
+import ProjectSummary from './ProjectSummary'
 
 const Projects = () => {
   const projects = useSelector((state) => state.projects)
@@ -20,29 +21,33 @@ const Projects = () => {
   }
 
   return (
-    <div>
-      <ErrorMessage />
-      <Loading />
-      <button onClick={handleClick} className="add-button">
-        Add a new project
-      </button>
+    <>
+      <div>
+        <button onClick={handleClick} className="add-button">
+          Add a new project
+        </button>
 
-      <h1 className="page-header">Projects</h1>
-
-      <div className="flex-grid">
-        {projects.map((project) => {
-          return (
-            <div className="col" key={project.id}>
-              <ProjectSummary
-                name={project.name}
-                id={project.id}
-                image={project.image}
-              />
-            </div>
-          )
-        })}
+        <h1 className="page-header">Projects</h1>
+        <Loading />
+        {isError() ? (
+          <ErrorMessage />
+        ) : (
+          <div className="flex-grid">
+            {projects.map((project) => {
+              return (
+                <div className="col" key={project.id}>
+                  <ProjectSummary
+                    name={project.name}
+                    id={project.id}
+                    image={project.image}
+                  />
+                </div>
+              )
+            })}
+          </div>
+        )}
       </div>
-    </div>
+    </>
   )
 }
 

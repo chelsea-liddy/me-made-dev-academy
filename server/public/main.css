@@ -158,6 +158,31 @@ input, textarea, select {
   
 }
 
+.error {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ margin: 100px;
+ background-color: pink;
+ padding: 30px;
+ 
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px;
+  padding: 30px;
+}
+
+.loading-icon {
+  height: 400px
+}
+
+
 .footer {
   text-align: center;
 }
