@@ -1,8 +1,8 @@
 const request = require('supertest')
-const server = require('../server')
-const { getProjects, getProject } = require('../db/db')
+const server = require('../../server')
+const { getProjects, getProject } = require('../../db/db')
 
-jest.mock('../db/db')
+jest.mock('../../db/db')
 
 describe('GET /v1/projects', () => {
   it('returns all projects in the projects database', () => {
