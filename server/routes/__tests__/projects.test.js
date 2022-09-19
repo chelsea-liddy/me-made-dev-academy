@@ -92,7 +92,7 @@ describe('POST /v1/projects', () => {
       Promise.reject(new Error('There was an error'))
     )
     return request(server)
-      .get('/v1/projects')
+      .post('/v1/projects')
       .then((res) => {
         expect(res.status).toBe(500)
         expect(res.text).toContain('Whoops!')
