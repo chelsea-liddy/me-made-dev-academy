@@ -2,7 +2,7 @@ const express = require('express')
 const db = require('../db/db')
 const router = express.Router()
 
-const errorMessage = 'Whoops! Something unravelled. Please try again'
+const errorMessage = 'Whoops! Something unravelled. Please try again.'
 
 //GET /v1/projects (all projects)
 router.get('/', (req, res) => {
@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
     .then((projects) => {
       res.json(projects)
     })
-    .catch((err) => {
-      console.error(err.mesage)
+    .catch(() => {
       res.status(500).send(errorMessage)
     })
 })
@@ -23,8 +22,7 @@ router.get('/:id', (req, res) => {
     .then((project) => {
       res.json(project)
     })
-    .catch((err) => {
-      console.error(err.mesage)
+    .catch(() => {
       res.status(500).send(errorMessage)
     })
 })
@@ -37,8 +35,7 @@ router.post('/', (req, res) => {
     .then((project) => {
       res.json(project)
     })
-    .catch((err) => {
-      console.error(err.mesage)
+    .catch(() => {
       res.status(500).send(errorMessage)
     })
 })
@@ -50,8 +47,7 @@ router.get('/updates/:projectId', (req, res) => {
     .then((updates) => {
       res.json(updates)
     })
-    .catch((err) => {
-      console.error(err.mesage)
+    .catch(() => {
       res.status(500).send(errorMessage)
     })
 })
@@ -65,8 +61,7 @@ router.delete('/:id', (req, res) => {
     .then((projects) => {
       res.json(projects)
     })
-    .catch((err) => {
-      console.error(err.mesage)
+    .catch(() => {
       res.status(500).send(errorMessage)
     })
 })
