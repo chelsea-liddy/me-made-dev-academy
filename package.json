@@ -15,7 +15,8 @@
     "build": "npm run webpack",
     "server": "node server",
     "test": "jest --detectOpenHandles",
-    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --noStackTrace --watchAll",
     "webpack": "webpack --config ./client/webpack.config.js",
     "lint": "eslint --ext .js,.jsx .",
     "knex": "knex --knexfile server/db/knexfile.js"
