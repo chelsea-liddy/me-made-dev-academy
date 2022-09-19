@@ -81,6 +81,7 @@ function getProjectUpdate(id, db = connection) {
       'update'
     )
     .where('id', id)
+    .first()
 }
 
 function addProjectUpdate(projectId, update, db = connection) {
