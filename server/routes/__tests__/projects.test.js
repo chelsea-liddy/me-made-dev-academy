@@ -1,6 +1,6 @@
 const request = require('supertest')
 const server = require('../../server')
-const { getProjects, getProject } = require('../../db/db')
+const { getProjects, getProject, addProject } = require('../../db/db')
 
 jest.mock('../../db/db')
 
@@ -44,9 +44,10 @@ describe('GET /v1/projects/:id', () => {
     ]
     getProject.mockReturnValue(Promise.resolve(fakeProjects[1]))
     return request(server)
-      .get('/v1/projects/:id')
+      .get('/v1/projects/2')
       .then((res) => {
         expect(res.body.id).toBe(2)
+        expect(res.body.name).not.toContain('Chelsea')
       })
   })
   it('returns status 500 and an error message when there is a problem', () => {
@@ -54,7 +55,33 @@ describe('GET /v1/projects/:id', () => {
       Promise.reject(new Error('There was an error'))
     )
     return request(server)
-      .get('/v1/projects/:id')
+      .get('/v1/projects/2')
+      .then((res) => {
+        expect(res.status).toBe(500)
+        expect(res.text).toContain('Whoops!')
+      })
+  })
+})
+
+describe('POST /v1/projects', () => {
+  it('adds a project into the projects database and returns projects in database', () => {
+    const fakeProjects = [
+      { id: 3, name: 'Abigail Dress' },
+      { id: 4, name: 'Florence Dress' },
+    ]
+    addProject.mockReturnValue(Promise.resolve(fakeProjects))
+    return request(server)
+      .post('/v1/projects')
+      .then((res) => {
+        expect(res.body[1].name).toBe('Florence Dress')
+      })
+  })
+  it('returns status 500 and an error message when there is a problem', () => {
+    addProject.mockImplementation(() =>
+      Promise.reject(new Error('There was an error'))
+    )
+    return request(server)
+      .get('/v1/projects')
       .then((res) => {
         expect(res.status).toBe(500)
         expect(res.text).toContain('Whoops!')

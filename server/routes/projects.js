@@ -32,20 +32,20 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const project = req.body
   db.addProject(project)
-    .then((project) => {
-      res.json(project)
+    .then((projects) => {
+      res.json(projects)
     })
     .catch(() => {
       res.status(500).send(errorMessage)
     })
 })
 
-//GET /v1/projects (project updates by project id)
-router.get('/updates/:projectId', (req, res) => {
-  const projectId = req.params.projectId
-  db.getProjectUpdates(projectId)
-    .then((updates) => {
-      res.json(updates)
+//DELETE /v1/projects (delete projects by id)
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  db.deleteProject(id)
+    .then((projects) => {
+      res.json(projects)
     })
     .catch(() => {
       res.status(500).send(errorMessage)
@@ -54,12 +54,12 @@ router.get('/updates/:projectId', (req, res) => {
 
 //PATCH /v1/projects
 
-//DELETE /v1/projects (delete projects by id)
-router.delete('/:id', (req, res) => {
-  const id = req.params.id
-  db.deleteProject(id)
-    .then((projects) => {
-      res.json(projects)
+//GET /v1/projects (project updates by project id)
+router.get('/updates/:projectId', (req, res) => {
+  const projectId = req.params.projectId
+  db.getProjectUpdates(projectId)
+    .then((updates) => {
+      res.json(updates)
     })
     .catch(() => {
       res.status(500).send(errorMessage)
