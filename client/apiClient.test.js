@@ -1,5 +1,13 @@
 import nock from 'nock'
-import { getProjects, getProject, getUpdatesByProjectId } from './apiClient'
+import {
+  getProjects,
+  getProject,
+  getUpdatesByProjectId,
+  addProject,
+  deleteProject,
+} from './apiClient'
+
+const URL = 'http://localhost'
 
 const fakeProjects = [
   {
@@ -40,9 +48,7 @@ const fakeUpdates = [
 
 describe('getProjects', () => {
   it('gets all projects from local api', () => {
-    const scope = nock('http://localhost')
-      .get('/v1/projects')
-      .reply(200, fakeProjects)
+    const scope = nock(URL).get('/v1/projects').reply(200, fakeProjects)
 
     return getProjects().then((result) => {
       expect(result).toHaveLength(2)
@@ -52,9 +58,9 @@ describe('getProjects', () => {
 })
 
 describe('getProject', () => {
-  it('gets a project from local api from id', () => {
+  it('returns a project from local api from id', () => {
     const id = 1
-    const scope = nock('http://localhost')
+    const scope = nock(URL)
       .get(`/v1/projects/${id}`)
       .reply(200, fakeProjects[0])
 
@@ -68,13 +74,37 @@ describe('getProject', () => {
 describe('getUpdatesByProjectId', () => {
   it('gets updates on a project from local api from project id', () => {
     const projectId = 1
-    const scope = nock('http://localhost')
+    const scope = nock(URL)
       .get(`/v1/projects/updates/${projectId}`)
       .reply(200, fakeUpdates)
 
     return getUpdatesByProjectId(projectId).then((result) => {
       expect(result[0].update).toContain('blocking')
       expect(scope.isDone()).toBe(true)
+    })
+  })
+})
+
+describe('addProject', () => {
+  it('adds a project to db through local api then returns all projects', () => {
+    const scope = nock(URL).post('/v1/projects').reply(200, fakeProjects)
+
+    return addProject('project').then((projects) => {
+      expect(scope.isDone()).toBe(true)
+      expect(projects[1].name).toContain('Duality')
+    })
+  })
+})
+
+describe('deleteProject', () => {
+  it('deletes a project in db through local api then returns all projects', () => {
+    const id = 1
+    const scope = nock(URL)
+      .delete(`/v1/projects/${id}`)
+      .reply(200, fakeProjects)
+    return deleteProject(id).then((projects) => {
+      expect(scope.isDone()).toBe(true)
+      expect(projects[1].id).toBe(2)
     })
   })
 })
