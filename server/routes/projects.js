@@ -56,7 +56,7 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-// TO DO PATCH /v1/projects (update a project)
+// TO DO PATCH /v1/projects (edit a project)
 
 //POST /v1/projects (add an update to a project)
 router.post('/updates/:projectId', (req, res) => {

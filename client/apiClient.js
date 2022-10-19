@@ -23,6 +23,15 @@ export function addProject(project) {
     })
 }
 
+export function addProjectUpdate(projectId, update) {
+  return request
+    .post(`/v1/projects/updates/${projectId}`)
+    .send(update)
+    .then((res) => {
+      return res.body
+    })
+}
+
 export function deleteProject(id) {
   return request.del(`/v1/projects/${id}`).then((res) => res.body)
 }
