@@ -6,7 +6,7 @@ exports.up = function (knex) {
   return knex.schema.createTable('project_updates', (table) => {
     table.increments('id').primary()
     table.integer('project_id')
-    table.date('date_updated')
+    table.string('date_updated')
     table.string('update')
   })
 }

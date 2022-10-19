@@ -10,6 +10,8 @@ const {
   editProject,
   getProjectUpdates,
   getProjectUpdate,
+  addProjectUpdate,
+  deleteProjectUpdate,
 } = require('../db')
 
 beforeAll(() => testDb.migrate.latest())
@@ -82,7 +84,7 @@ describe('editProject', () => {
 })
 
 describe('getProjectUpdates', () => {
-  it('gets all the updates associated with a particular project', () => {
+  it('gets all the updates associated with a project', () => {
     return getProjectUpdates(1, testDb).then((updates) => {
       expect(updates).toHaveLength(2)
       expect(updates[0].projectId).toBe(1)
@@ -96,5 +98,30 @@ describe('getProjectUpdate', () => {
     return getProjectUpdate(2, testDb).then((update) => {
       expect(update.id).toBe(2)
     })
+  })
+})
+
+describe('addProjectUpdate', () => {
+  it('adds an update', () => {
+    const newUpdate = {
+      date_updated: new Date().toDateString(),
+      project_id: 2,
+      update: 'Row 38',
+    }
+    return addProjectUpdate(2, newUpdate, testDb)
+      .then(() => testDb('project_updates').select())
+      .then((updates) => {
+        expect(updates).toHaveLength(4)
+      })
+  })
+})
+
+describe('deleteProjectUpdate', () => {
+  it('deletes an update', () => {
+    return deleteProjectUpdate(1, testDb)
+      .then(() => testDb('project_updates').select())
+      .then((updates) => {
+        expect(updates).toHaveLength(2)
+      })
   })
 })

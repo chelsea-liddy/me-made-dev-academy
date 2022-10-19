@@ -21,6 +21,10 @@ const Project = () => {
       })
   }, [])
 
+  function showUpdateForm() {
+    navigate(`/project/${id}/update`)
+  }
+
   function remove() {
     dispatch(removeProject(id))
     navigate('/')
@@ -47,6 +51,7 @@ const Project = () => {
           ></img>
         </div>
       </div>
+      <button onClick={showUpdateForm}>Add an update</button>
       <button onClick={remove}>Remove this project</button>
     </>
   )

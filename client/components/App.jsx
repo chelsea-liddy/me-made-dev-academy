@@ -7,6 +7,7 @@ import Projects from './Projects'
 import Project from './Project'
 import Stash from './Stash'
 import AddProject from './AddProject'
+import AddProjectUpdate from './AddProjectUpdate'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Projects />} />
           <Route path="/project/:id" element={<Project />} />
+          <Route path="/project/:id/update" element={<AddProjectUpdate />} />
           <Route path="/project/add" element={<AddProject />} />
           <Route path="/stash" element={<Stash />} />
         </Routes>

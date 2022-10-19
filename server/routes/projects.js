@@ -10,8 +10,9 @@ router.get('/', (req, res) => {
     .then((projects) => {
       res.json(projects)
     })
-    .catch(() => {
+    .catch((err) => {
       res.status(500).send(errorMessage)
+      console.error(err.message)
     })
 })
 
@@ -22,8 +23,9 @@ router.get('/:id', (req, res) => {
     .then((project) => {
       res.json(project)
     })
-    .catch(() => {
+    .catch((err) => {
       res.status(500).send(errorMessage)
+      console.error(err.message)
     })
 })
 
@@ -35,8 +37,9 @@ router.post('/', (req, res) => {
     .then((projects) => {
       res.json(projects)
     })
-    .catch(() => {
+    .catch((err) => {
       res.status(500).send(errorMessage)
+      console.error(err.message)
     })
 })
 
@@ -47,12 +50,33 @@ router.delete('/:id', (req, res) => {
     .then((projects) => {
       res.json(projects)
     })
-    .catch(() => {
+    .catch((err) => {
       res.status(500).send(errorMessage)
+      console.error(err.message)
     })
 })
 
-//PATCH /v1/projects
+// TO DO PATCH /v1/projects (edit a project)
+
+//POST /v1/projects (add an update to a project)
+router.post('/updates/:projectId', (req, res) => {
+  const projectId = req.params.projectId
+  const update = req.body
+  update.project_id = req.params.projectId
+  const currentDate = new Date(Date.now())
+  update.date_updated = currentDate.toDateString()
+  db.addProjectUpdate(projectId, update)
+    .then((ids) => {
+      return db.getProjectUpdate(ids[0])
+    })
+    .then((newUpdate) => {
+      res.json(newUpdate)
+    })
+    .catch((err) => {
+      res.status(500).send(errorMessage)
+      console.error(err.message)
+    })
+})
 
 //GET /v1/projects (project updates by project id)
 router.get('/updates/:projectId', (req, res) => {
@@ -61,8 +85,9 @@ router.get('/updates/:projectId', (req, res) => {
     .then((updates) => {
       res.json(updates)
     })
-    .catch(() => {
+    .catch((err) => {
       res.status(500).send(errorMessage)
+      console.error(err.message)
     })
 })
 
