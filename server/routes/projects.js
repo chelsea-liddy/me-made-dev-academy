@@ -1,6 +1,7 @@
 const express = require('express')
 const db = require('../db/db')
 const router = express.Router()
+const upload = require('../multer')
 
 const errorMessage = 'Whoops! Something unravelled. Please try again.'
 
@@ -31,16 +32,38 @@ router.get('/:id', (req, res) => {
 
 //POST /v1/projects (add a project)
 
-router.post('/', (req, res) => {
-  const project = req.body
-  db.addProject(project)
-    .then((projects) => {
-      res.json(projects)
-    })
-    .catch((err) => {
-      res.status(500).send(errorMessage)
-      console.error(err.message)
-    })
+router.post('/', upload.single('image'), (req, res) => {
+  if (!req.file) {
+    return null
+  } else {
+    const {
+      date_started,
+      category,
+      name,
+      designer,
+      description,
+      materials,
+      link,
+    } = req.body
+    const project = {
+      image: '/images/uploadedimages/' + req.file.filename,
+      date_started,
+      category,
+      name,
+      designer,
+      description,
+      materials,
+      link,
+    }
+    db.addProject(project)
+      .then((projects) => {
+        res.json(projects)
+      })
+      .catch((err) => {
+        res.status(500).send(errorMessage)
+        console.error(err.message)
+      })
+  }
 })
 
 //DELETE /v1/projects (delete projects by id)

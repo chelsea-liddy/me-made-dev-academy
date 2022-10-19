@@ -1,6 +1,4 @@
-const config = require('./knexfile').development
-
-const connection = require('knex')(config)
+const connection = require('./connection')
 
 function getProjects(db = connection) {
   return db('projects').select(
@@ -35,7 +33,7 @@ function getProject(id, db = connection) {
 
 function addProject(project, db = connection) {
   return db('projects')
-    .insert(project)
+    .insert(project, 'id')
     .then(() => getProjects(db))
 }
 
