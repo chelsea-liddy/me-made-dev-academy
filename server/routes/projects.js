@@ -63,7 +63,8 @@ router.post('/updates/:projectId', (req, res) => {
   const projectId = req.params.projectId
   const update = req.body
   update.project_id = req.params.projectId
-  update.date_updated = new Date(Date.now())
+  const currentDate = new Date(Date.now())
+  update.date_updated = currentDate.toDateString()
   db.addProjectUpdate(projectId, update)
     .then((ids) => {
       return db.getProjectUpdate(ids[0])
