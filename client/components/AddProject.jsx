@@ -47,7 +47,7 @@ const AddProject = () => {
   return (
     <form encType="multipart/form-data">
       <h1>Add a new project:</h1>
-      <div>
+      <div className="field">
         <label htmlFor="name">Name: </label>
         <input
           name="name"
@@ -55,7 +55,7 @@ const AddProject = () => {
           value={formData.name}
         ></input>
       </div>
-      <div>
+      <div className="field">
         <label htmlFor="category">Category: </label>
         <select
           name="category"
@@ -68,7 +68,7 @@ const AddProject = () => {
           <option value="Other">Other</option>
         </select>
       </div>
-      <div>
+      <div className="field">
         <label htmlFor="date_started">Date project started: </label>
         <input
           type="date"
@@ -77,7 +77,7 @@ const AddProject = () => {
           value={formData.date_started}
         ></input>
       </div>
-      <div>
+      <div className="field">
         <label htmlFor="designer">Designer: </label>
         <input
           name="designer"
@@ -85,7 +85,7 @@ const AddProject = () => {
           value={formData.designer}
         ></input>
       </div>
-      <div>
+      <div className="field">
         <label htmlFor="description">Description: </label>
         <input
           name="description"
@@ -93,7 +93,7 @@ const AddProject = () => {
           value={formData.description}
         ></input>
       </div>
-      <div>
+      <div className="field">
         <label htmlFor="materials">Materials: </label>
         <input
           name="materials"
@@ -101,7 +101,7 @@ const AddProject = () => {
           value={formData.materials}
         ></input>
       </div>
-      <div>
+      <div className="field">
         <label htmlFor="link">Link: </label>
         <input
           name="link"
@@ -129,7 +129,7 @@ const AddProject = () => {
           </div>
         )}
       </div>
-      <div>
+      <div className="field">
         <label htmlFor="image">Add an image: </label>
         <input name="image" type="file" onChange={imageHandler}></input>
       </div>
