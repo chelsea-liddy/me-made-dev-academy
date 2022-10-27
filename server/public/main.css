@@ -198,3 +198,7 @@ label {
 .footer {
   text-align: center;
 }
+
+.black-content {
+  background: grey
+}

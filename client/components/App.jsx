@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
@@ -8,11 +8,15 @@ import Project from './Project'
 import Stash from './Stash'
 import AddProject from './AddProject'
 import AddProjectUpdate from './AddProjectUpdate'
+import { ThemeContext, themes } from '../contexts/ThemeContext'
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(false)
+
   return (
     <>
       <Header />
+
       <Nav />
       <div className="main">
         <Routes>
@@ -23,6 +27,18 @@ const App = () => {
           <Route path="/stash" element={<Stash />} />
         </Routes>
       </div>
+      <ThemeContext.Consumer>
+        {({ changeTheme }) => (
+          <button
+            onClick={() => {
+              setDarkMode(!darkMode)
+              changeTheme(darkMode ? themes.light : themes.dark)
+            }}
+          >
+            Dark Mode
+          </button>
+        )}
+      </ThemeContext.Consumer>
       <Footer />
     </>
   )

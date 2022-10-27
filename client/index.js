@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import reducers from './reducers'
+import ThemeContextWrapper from './components/ThemeContextWrapper'
 
 import App from './components/App'
 
@@ -20,7 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <ThemeContextWrapper>
+          <App />
+        </ThemeContextWrapper>
       </BrowserRouter>
     </Provider>,
     document.getElementById('app')
