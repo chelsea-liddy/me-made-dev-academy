@@ -6,6 +6,7 @@ import thunkMiddleware from 'redux-thunk'
 import reducers from './reducers'
 
 import App from './components/App'
+import './styles/main.css'
 
 import { BrowserRouter } from 'react-router-dom'
 

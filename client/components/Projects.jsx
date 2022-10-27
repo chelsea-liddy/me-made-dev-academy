@@ -27,7 +27,7 @@ const Projects = () => {
           Add a new project
         </button>
 
-        <h1 className="page-header">Projects</h1>
+        <h1 className="text-blue-200">Projects</h1>
         <Loading />
         {isError() ? (
           <ErrorMessage />
