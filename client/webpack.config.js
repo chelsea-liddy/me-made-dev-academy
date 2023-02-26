@@ -11,8 +11,14 @@ module.exports = {
     rules: [
       {
         test: /\.(j|t)sx?$/,
-        loader: 'babel-loader',
+        loader: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'source-map-loader',
       },
     ],
   },
